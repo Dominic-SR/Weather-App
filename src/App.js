@@ -1,7 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect,useState } from 'react';
 
 function App() {
+    const [lat, setLat] = useState();
+    const [long, setLong] = useState();
+
+    useEffect(()=>{
+        navigator.geolocation.getCurrentPosition(
+            position => {
+              setLat(position?.coords?.latitude);
+              setLong(position?.coords?.longitude);
+            }
+          )
+    },[])
+
   return (
     <div className="container">
         <div className="weather-side">
