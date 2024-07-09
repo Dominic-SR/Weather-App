@@ -18,17 +18,19 @@ body {
 	margin: 0;
 	width: 100%;
 	height: 100vh;
+	background: rgb(239,239,239);
+	background: linear-gradient(90deg, rgba(239,239,239,1) 0%, rgba(233,233,233,1) 49%, rgba(239,239,239,1) 100%);
 	font-family: 'Montserrat', sans-serif;
 	background-color: #343d4b;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
 	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
 }
 
 .container {
@@ -43,6 +45,7 @@ body {
 .weather-side {
 	position: relative;
 	height: 100%;
+	background: #fff;
 	border-radius: 25px;
 	width: 600px;
 	-webkit-box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2);
@@ -84,10 +87,10 @@ body {
 	        transform: translateZ(0) scale(1.02) perspective(1000px); */
 }
 
-.weather-gradient:hover{
+/* .weather-gradient:hover{
     -webkit-transform: scale(1.1) perspective(1500px) rotateY(10deg);
 	        transform: scale(1.1) perspective(1500px) rotateY(10deg);
-}
+} */
 
 .date-container {
 	position: absolute;
@@ -97,10 +100,12 @@ body {
 
 .date-dayname {
 	margin: 0;
+	color: #000;
 }
 
 .date-day {
 	display: block;
+	color: #000;
 }
 
 .location {
@@ -113,6 +118,7 @@ body {
 	height: 0.8em;
 	width: auto;
 	margin-right: 5px;
+	color: #000;
 }
 
 .weather-container {
@@ -130,10 +136,12 @@ body {
 	margin: 0;
 	font-weight: 700;
 	font-size: 4em;
+	color: #000;
 }
 
 .weather-desc {
 	margin: 0;
+	color: #000;
 }
 
 .info-side {
@@ -148,6 +156,7 @@ body {
 	margin: 0 25px 25px 25px;
 /* 	box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25); */
 	border-radius: 10px;
+	color: #000;
 }
 
 .today-info>div:not(:last-child) {
@@ -232,7 +241,7 @@ body {
 	border-radius: 25px;
 	padding: 10px;
 	font-family: 'Montserrat', sans-serif;
-	background-image: var(--gradient);
+	background-color:#000 ;
 	color: #ffffff;
 	font-weight: 700;
 	-webkit-box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);

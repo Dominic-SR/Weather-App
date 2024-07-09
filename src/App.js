@@ -7,6 +7,10 @@ function App() {
     const [long, setLong] = useState();
 
     useEffect(()=>{
+
+        let date = new Date();
+        
+
         navigator.geolocation.getCurrentPosition(
             position => {
               setLat(position?.coords?.latitude);
@@ -53,6 +57,12 @@ function App() {
 
                 <div className="week-container">
                     <ul className="week-list">
+                    <li className="active">
+                            <i className="day-icon" data-feather="sun"></i>
+                            <span className="day-name">Mon</span>
+                            <span className="day-temp">29 C</span>
+                        </li>
+                        
                         <li className="active">
                             <i className="day-icon" data-feather="sun"></i>
                             <span className="day-name">Tue</span>
@@ -74,6 +84,12 @@ function App() {
                         <li className="active">
                             <i className="day-icon" data-feather="sun"></i>
                             <span className="day-name">Fri</span>
+                            <span className="day-temp">25 C</span>
+                        </li>
+
+                        <li className="active">
+                            <i className="day-icon" data-feather="sun"></i>
+                            <span className="day-name">Sat</span>
                             <span className="day-temp">25 C</span>
                         </li>
                         <div className="clear"></div>
