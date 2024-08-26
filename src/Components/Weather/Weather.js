@@ -1,4 +1,5 @@
 import React from 'react'
+import WeatherGif from '../../Assets/Gif/weather.gif'
 
 const Weather = ({
     currentDay,
@@ -19,9 +20,11 @@ const Weather = ({
     </div>
 
     <div className="weather-container">
-        <i className="weather-icon" data-feather="sun"></i>
+        <h3 className="weather-desc">{fetchData?.name}</h3>
         <h1 className="weather-temp">{Math.round(fetchData?.main?.temp)} C</h1>
+        <img className='weather-gif' src={WeatherGif} alt="weather"></img>
         <h3 className="weather-desc">Sunny</h3>
+
     </div>
     </div>
   )
