@@ -20,11 +20,11 @@ function App() {
         setWeekDays(weekday)
         setCurrentDay(weekday[date.getUTCDay()])
 
-        const day = date.getDay()
+        const dayDate = date.getDate()
         const monthIndex = date.getMonth();
         const monthName = monthNames[monthIndex];
         const year = date.getFullYear();
-        setcurrentDDMonthYYYY(day+' '+monthName+' '+year)
+        setcurrentDDMonthYYYY(dayDate+' '+monthName+' '+year)
 
         navigator.geolocation.getCurrentPosition(
             position => {

@@ -1,15 +1,36 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 
 const Precepation = ({
     currentDay,
     weekDays,
     fetchData
 }) => {
-    
-    for(let i=0; weekDays?.length > i; i++){
-        // console.log("OOOOO",weekDays[i]);
+
+    const [upcomingDaysm, setUpcomingDays] = useState();
+    const checkDay = (event) =>{
+       return event === currentDay
     }
-console.log(":::::",fetchData);
+    
+    let weekIndex = weekDays?.findIndex(checkDay);
+
+
+    useEffect(()=>{
+        // for(let i=1; i < weekDays?.length*2; i++){
+        //     if(weekIndex <= i && weekDays?.length+weekIndex >= i){
+        //     console.log("OOOOO",weekDays[i%weekDays.length]);
+        //     }
+        // }
+        // for (var i=0;i<n;i++) {
+        //     console.log(array[i%array.length])
+        //   }
+
+       var toDay = new Date();
+       let ddd= toDay.toLocaleDateString()
+            console.log("++++++",toDay.toLocaleDateString())
+            console.log(">>>>>>",toString(ddd)?.reverse())
+
+    //    var nextWeek = new Date(firstDay.getTime() + 7 * 24 * 60 * 60 * 1000);
+    },[])
   return (
     <div className="info-side">
     <div className="today-info-container">
