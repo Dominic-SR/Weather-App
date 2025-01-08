@@ -4,6 +4,7 @@ import { useEffect,useState } from 'react';
 import Weather from './Components/Weather/Weather';
 import Precepation from './Components/Precepation/Precepation';
 import { Services } from './Services'
+import LocationPopUp from './Components/LocationPopUp/LocationPopUp';
 
 function App() {
     const [lat, setLat] = useState();
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <div className="container">
+        <LocationPopUp />
         <div className="weather-side">
             <Weather 
             currentDay={currentDay}

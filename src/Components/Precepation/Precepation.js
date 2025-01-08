@@ -26,8 +26,8 @@ const Precepation = ({
 
        var toDay = new Date();
        let ddd= toDay.toLocaleDateString()
-            console.log("++++++",toDay.toLocaleDateString())
-            console.log(">>>>>>",toString(ddd)?.reverse())
+            // console.log("++++++",toDay.toLocaleDateString())
+            // console.log(">>>>>>",toString(ddd)?.reverse())
 
     //    var nextWeek = new Date(firstDay.getTime() + 7 * 24 * 60 * 60 * 1000);
     },[])
