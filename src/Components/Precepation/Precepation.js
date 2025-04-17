@@ -15,21 +15,20 @@ const Precepation = ({
 
 
     useEffect(()=>{
-        // for(let i=1; i < weekDays?.length*2; i++){
-        //     if(weekIndex <= i && weekDays?.length+weekIndex >= i){
-        //     console.log("OOOOO",weekDays[i%weekDays.length]);
-        //     }
-        // }
-        // for (var i=0;i<n;i++) {
-        //     console.log(array[i%array.length])
-        //   }
+     
+        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const today = new Date();
+        let nextFiveDays = [];
 
-       var toDay = new Date();
-       let ddd= toDay.toLocaleDateString()
-            // console.log("++++++",toDay.toLocaleDateString())
-            // console.log(">>>>>>",toString(ddd)?.reverse())
+        for (let i = 1; i <= 6; i++) {
+        const nextDay = new Date();
+        nextDay.setDate(today.getDate() + i);
+        const dayName = daysOfWeek[nextDay.getDay()];
+        nextFiveDays.push(dayName);
+        }
 
-    //    var nextWeek = new Date(firstDay.getTime() + 7 * 24 * 60 * 60 * 1000);
+        setUpcomingDays(nextFiveDays)
+    
     },[])
   return (
     <div className="info-side">
@@ -51,41 +50,14 @@ const Precepation = ({
 
     <div className="week-container">
         <ul className="week-list">
-        <li className="active">
+     
+
+            {upcomingDaysm?.map((day, index) => (
+            <li className="active">
                 <i className="day-icon" data-feather="sun"></i>
-                <span className="day-name">Mon</span>
+                <span className="day-name">{day}</span>
                 <span className="day-temp">29 C</span>
-            </li>
-            
-            <li className="active">
-                <i className="day-icon" data-feather="sun"></i>
-                <span className="day-name">Tue</span>
-                <span className="day-temp">29 C</span>
-            </li>
-
-            <li className="active">
-                <i className="day-icon" data-feather="sun"></i>
-                <span className="day-name">Wed</span>
-                <span className="day-temp">21 C</span>
-            </li>
-
-            <li className="active">
-                <i className="day-icon" data-feather="sun"></i>
-                <span className="day-name">Thu</span>
-                <span className="day-temp">18 C</span>
-            </li>
-
-            <li className="active">
-                <i className="day-icon" data-feather="sun"></i>
-                <span className="day-name">Fri</span>
-                <span className="day-temp">25 C</span>
-            </li>
-
-            <li className="active">
-                <i className="day-icon" data-feather="sun"></i>
-                <span className="day-name">Sat</span>
-                <span className="day-temp">25 C</span>
-            </li>
+            </li>))}
             <div className="clear"></div>
         </ul>
     </div>

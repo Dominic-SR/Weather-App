@@ -43,12 +43,29 @@ function App() {
             .then((results) => {
                 setFetchData(results)
             });
+
+
+
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=current,minutely,hourly,alerts&units=metric&appid=${Services?.ApiKey}`)
+            .then(response => response.json())
+            .then(data => {
+              const nextSixDays = data.daily.slice(1, 7); // Skip today, get next 6
+              nextSixDays.forEach(day => {
+                const date = new Date(day.dt * 1000);
+                const dayName = date.toLocaleDateString("en-US", { weekday: 'long' });
+                console.log(`${dayName}: ${day.weather[0].description}, Temp: ${day.temp.day}°C`);
+              });
+            })
+            .catch(err => console.error("Error fetching weather:", err));
         }
+
+
+        
     },[lat,long])
 
   return (
     <div className="container">
-        <LocationPopUp />
+        {/* <LocationPopUp /> */}
         <div className="weather-side">
             <Weather 
             currentDay={currentDay}
