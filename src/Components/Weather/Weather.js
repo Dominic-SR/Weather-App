@@ -6,12 +6,14 @@ const Weather = ({
     currentDDMonthYYYY,
     fetchData,
     lat,
-    long
+    long,
+    currentTime
 }) => {
+  console.log("AAAAAA",currentTime);
   return (
     <div className="weather-gradient">
     <div className="date-container">
-        <h2 className="date-dayname">{currentDay}</h2>
+        <h2 className="date-dayname">{currentDay} {currentTime}</h2>
         <span className="date-day">{currentDDMonthYYYY}</span>
     </div>
 

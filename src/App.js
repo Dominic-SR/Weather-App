@@ -13,9 +13,24 @@ function App() {
     const [currentDDMonthYYYY,setcurrentDDMonthYYYY] = useState();
     const [weekDays,setWeekDays] = useState();
     const [fetchData, setFetchData] = useState();
+    const [currentTime, setCurrentTime] = useState('')
     
     useEffect(()=>{
+
+        // get Time and minutes in 12 Hours
+
         let date = new Date();
+
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let ampm = hours >= 12 ? 'PM' : 'AM';
+        
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        const formatedMinute = minutes < 10 ? 0+minutes : minutes
+
+        setCurrentTime(hours+":"+formatedMinute+" "+ampm)
+
         const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
         const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec',];
         setWeekDays(weekday)
@@ -32,7 +47,7 @@ function App() {
               setLat(position?.coords?.latitude);
               setLong(position?.coords?.longitude);
             } 
-          )
+          )        
 
     },[])
 
@@ -73,6 +88,7 @@ function App() {
             fetchData={fetchData}
             lat={lat}
             long={long}
+            currentTime={currentTime}
             />
             <Precepation 
             currentDay={currentDay}

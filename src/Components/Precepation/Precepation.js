@@ -28,6 +28,41 @@ const Precepation = ({
         }
 
         setUpcomingDays(nextFiveDays)
+
+
+  fetch('https://api.openweathermap.org/data/2.5/forecast?lat=10.7904833&lon=78.7046725&appid=10056859e5ff89339a59bcb8c746f63d&units=metric')
+  .then(response => response.json())
+  .then(data => {
+    const days = {};
+
+    // Group forecast by date
+    data.list.forEach(item => {
+      const date = item.dt_txt.split(" ")[0]; // Get just the date (YYYY-MM-DD)
+      if (!days[date]) {
+        days[date] = [];
+      }
+      days[date].push(item);
+    });
+
+    // Get only the next 5 days
+    const next5Days = Object.keys(days).slice(0, 5);
+
+    next5Days.forEach(date => {
+      console.log(`📅 Date: ${date}`);
+
+      days[date].forEach(forecast => {
+        const time = forecast.dt_txt.split(" ")[1];
+        const temp = forecast.main.temp;
+        const desc = forecast.weather[0].description;
+
+        console.log(`🕒 ${time} | 🌡️ ${temp}°C | ${desc}`);
+      });
+
+      console.log("---------------");
+    });
+  })
+  .catch(error => console.error("Error fetching forecast:", error));
+
     
     },[])
   return (
