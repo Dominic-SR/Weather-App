@@ -63,11 +63,7 @@ body {
 }
 
 .location-frame-container{
-	position: absolute;
-	top: 25%;
-	left: 20px;
-	width: 50%;
-    padding: 0px 15px;
+padding: 20px;
 }
 
 .location-frame-container iframe{
@@ -76,18 +72,15 @@ body {
 }
 
 .weather-gradient {
-	/* position: absolute; */
+	position: relative;
 	width: 50%;
 	height: 100%;
-	top: 0;
-	left: 0
 }
 
 
 .date-container {
-	position: absolute;
-	top: 25px;
-	left: 25px;
+	position: relative;
+	padding: 30px;
 }
 
 .date-dayname {
@@ -114,9 +107,9 @@ body {
 }
 
 .weather-container {
-	position: absolute;
-	bottom: 25px;
-	left: 25px;
+	position: relative;
+	width: 50%;
+	padding: 30px;
 }
 
 .weather-icon.feather {
@@ -301,4 +294,49 @@ body {
 .location-popup-container .location-form-group .submit-search-icon svg{
 	height: 20px;
 	width: 20px;
+}
+
+
+@media only screen and (min-width:280px) and (max-width:319px){
+	/* / smartphones, iPhone, portrait 480x320 phones /  */
+
+}
+
+@media only screen and (min-width:320px) and (max-width:480px){
+/* / smartphones, iPhone, portrait 480x320 phones /  */
+
+.weather-side {
+	height: 70%;
+	width: calc(100% - 30px);
+	position: relative;
+	left: 15px;
+	top: 15px;
+	flex-direction: column;
+}
+
+.weather-gradient {
+	width: 100%;
+}
+
+.info-side {
+	width: 100%;
+}
+
+}
+
+@media only screen and (min-width:481px) and (max-width:640px){
+/* / portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. /  */
+
+}
+
+@media only screen and (min-width:1281px) and (max-width:1399px){
+/* / DESKTOP VIEW / */
+}
+
+@media (max-width: 1510px) and (min-width: 1200px){
+
+}
+
+@media (max-width: 1710px) and (min-width: 1510px){
+
 }
