@@ -79,6 +79,7 @@ function App() {
     },[lat,long])
 
   return (
+    <div className='main-wrapper'>
     <div className="container">
         {/* <LocationPopUp /> */}
         <div className="weather-side">
@@ -96,6 +97,7 @@ function App() {
             fetchData={fetchData}
             />
         </div>
+    </div>
     </div>
   );
 }

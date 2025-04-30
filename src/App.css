@@ -16,7 +16,7 @@
 
 body {
 	margin: 0;
-	width: 100%;
+	width: 100vw;
 	height: 100vh;
 	background: url(https://picsum.photos/1400/900);
 	background-position: center;
@@ -35,11 +35,18 @@ body {
 	justify-content: center;
 }
 
+.main-wrapper{
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .container {
 	border-radius: 25px;
 	-webkit-box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.2);
-	        box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.2);
-	background-color: #222831;
+	box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.2);
 	color: #ffffff;
 	height: 50%;
 }
@@ -306,20 +313,63 @@ padding: 20px;
 /* / smartphones, iPhone, portrait 480x320 phones /  */
 
 .weather-side {
-	height: 70%;
+	height: calc(100% - 30px);
 	width: calc(100% - 30px);
 	position: relative;
 	left: 15px;
 	top: 15px;
+	justify-content: flex-start;
 	flex-direction: column;
 }
 
 .weather-gradient {
 	width: 100%;
+	height: 50%;
 }
 
 .info-side {
 	width: 100%;
+	height: 50%;
+}
+
+.container{
+	height: calc(100% - 30px);
+}
+
+.date-container{
+	padding: 15px 30px;
+}
+
+.date-container .date-dayname{
+	font-size: 20px;
+}
+
+.location-frame-container{
+	padding: 10px 30px;
+}
+
+.weather-container{
+	padding: 10px 30px;
+}
+.weather-temp{
+	font-size: 50px;
+}
+
+.date-container .date-day{
+	font-size: 15px;
+}
+
+.today-info{
+	margin: 0px;
+	padding: 15px 30px;
+}
+
+.week-list>li {
+	padding: 10px;
+}
+
+.week-list>li .day-icon{
+	height: 0px;
 }
 
 }
