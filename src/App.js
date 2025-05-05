@@ -95,6 +95,8 @@ function App() {
             currentDay={currentDay}
             weekDays={weekDays}
             fetchData={fetchData}
+            lat={lat}
+            long={long}
             />
         </div>
     </div>

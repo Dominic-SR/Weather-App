@@ -8,7 +8,10 @@ const Precepation = ({
     long
 }) => {
 
+  console.log("oooo",lat,);
+
     const [upcomingDaysm, setUpcomingDays] = useState();
+    const [upComingWeathers, setUpcommingWeathers] = useState([])
     const checkDay = (event) =>{
        return event === currentDay
     }
@@ -32,43 +35,25 @@ const Precepation = ({
         setUpcomingDays(nextFiveDays)
 
 
-  fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${long}&lon=${long}&appid=10056859e5ff89339a59bcb8c746f63d&units=metric`)
+  fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=10056859e5ff89339a59bcb8c746f63d&units=metric`)
   .then(response => response.json())
   .then(data => {
 
-    console.log("DOOOMS",data);
-    const days = {};
+    const ComingWeathers = [];
 
-    // Group forecast by date
-    data.list.forEach(item => {
-      const date = item.dt_txt.split(" ")[0]; // Get just the date (YYYY-MM-DD)
-      if (!days[date]) {
-        days[date] = [];
+    data.list.map((item,indx) => {
+      if(indx <= 5){
+        ComingWeathers.push(item)
       }
-      days[date].push(item);
     });
 
-    // Get only the next 5 days
-    const next5Days = Object.keys(days).slice(0, 5);
+    setUpcommingWeathers(ComingWeathers)
 
-    next5Days.forEach(date => {
-      console.log(`📅 Date: ${date}`);
-
-      days[date].forEach(forecast => {
-        const time = forecast.dt_txt.split(" ")[1];
-        const temp = forecast.main.temp;
-        const desc = forecast.weather[0].description;
-
-        console.log(`🕒 ${time} | 🌡️ ${temp}°C | ${desc}`);
-      });
-
-      console.log("---------------");
-    });
   })
   .catch(error => console.error("Error fetching forecast:", error));
 
     
-    },[])
+    },[lat, long])
   return (
     <div className="info-side">
     <div className="today-info-container">
@@ -91,11 +76,14 @@ const Precepation = ({
         <ul className="week-list">
      
 
-            {upcomingDaysm?.map((day, index) => (
+            {upComingWeathers?.map((item, index) => (
             <li className="active">
+              {console.log("AAAAA",item)}
                 <i className="day-icon" data-feather="sun"></i>
-                <span className="day-name">{day}</span>
-                <span className="day-temp">29 C</span>
+                <span className="day-name">{item?.dt_txt.split(" ")[1].split(':').slice(0, 2).join(':')}</span>
+                <span className="day-temp">{item?.main?.temp} C</span>
+                <span className="day-name">{item?.weather[0]?.main}</span>
+
             </li>))}
             <div className="clear"></div>
         </ul>
@@ -104,7 +92,7 @@ const Precepation = ({
     <div className="location-container">
         <button className="location-button">
             <i data-feather="map-pin"></i>
-            <span>Change location</span>
+            <span>Change Date</span>
         </button>
     </div>
 </div>
