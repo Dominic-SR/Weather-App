@@ -3,7 +3,9 @@ import React,{useState,useEffect} from 'react'
 const Precepation = ({
     currentDay,
     weekDays,
-    fetchData
+    fetchData,
+    lat,
+    long
 }) => {
 
     const [upcomingDaysm, setUpcomingDays] = useState();
@@ -30,9 +32,11 @@ const Precepation = ({
         setUpcomingDays(nextFiveDays)
 
 
-  fetch('https://api.openweathermap.org/data/2.5/forecast?lat=10.7904833&lon=78.7046725&appid=10056859e5ff89339a59bcb8c746f63d&units=metric')
+  fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${long}&lon=${long}&appid=10056859e5ff89339a59bcb8c746f63d&units=metric`)
   .then(response => response.json())
   .then(data => {
+
+    console.log("DOOOMS",data);
     const days = {};
 
     // Group forecast by date

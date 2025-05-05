@@ -9,7 +9,6 @@ const Weather = ({
     long,
     currentTime
 }) => {
-  console.log("AAAAAA",currentTime);
   return (
     <div className="weather-gradient">
     <div className="date-container">
