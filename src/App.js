@@ -17,8 +17,6 @@ function App() {
     
     useEffect(()=>{
 
-        // get Time and minutes in 12 Hours
-
         let date = new Date();
 
         let hours = date.getHours();
@@ -53,15 +51,13 @@ function App() {
 
     useEffect(()=>{
         if(lat !== undefined, long != undefined){
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${Services?.ApiKey}&units=metric`)
+            fetch(`${Services?.API_PATH}/weather?lat=${lat}&lon=${long}&appid=${Services?.ApiKey}&units=metric`)
             .then((res) => res.json())
             .then((results) => {
                 setFetchData(results)
             });
 
-
-
-            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=current,minutely,hourly,alerts&units=metric&appid=${Services?.ApiKey}`)
+            fetch(`${Services?.API_PATH}/onecall?lat=${lat}&lon=${long}&exclude=current,minutely,hourly,alerts&units=metric&appid=${Services?.ApiKey}`)
             .then(response => response.json())
             .then(data => {
               const nextSixDays = data.daily.slice(1, 7); // Skip today, get next 6

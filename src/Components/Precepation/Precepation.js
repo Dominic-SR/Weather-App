@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react'
+import { Services } from '../../Services'
 
 const Precepation = ({
     currentDay,
@@ -7,8 +8,6 @@ const Precepation = ({
     lat,
     long
 }) => {
-
-  console.log("oooo",lat,);
 
     const [upcomingDaysm, setUpcomingDays] = useState();
     const [upComingWeathers, setUpcommingWeathers] = useState([])
@@ -35,7 +34,7 @@ const Precepation = ({
         setUpcomingDays(nextFiveDays)
 
 
-  fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=10056859e5ff89339a59bcb8c746f63d&units=metric`)
+  fetch(`${Services?.API_PATH}/forecast?lat=${lat}&lon=${long}&appid=10056859e5ff89339a59bcb8c746f63d&units=metric`)
   .then(response => response.json())
   .then(data => {
 
@@ -46,9 +45,7 @@ const Precepation = ({
         ComingWeathers.push(item)
       }
     });
-
     setUpcommingWeathers(ComingWeathers)
-
   })
   .catch(error => console.error("Error fetching forecast:", error));
 
@@ -78,7 +75,6 @@ const Precepation = ({
 
             {upComingWeathers?.map((item, index) => (
             <li className="active">
-              {console.log("AAAAA",item)}
                 <i className="day-icon" data-feather="sun"></i>
                 <span className="day-name">{item?.dt_txt.split(" ")[1].split(':').slice(0, 2).join(':')}</span>
                 <span className="day-temp">{item?.main?.temp} C</span>

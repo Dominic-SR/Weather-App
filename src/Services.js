@@ -1,3 +1,4 @@
 export const Services = {
+    API_PATH : "https://api.openweathermap.org/data/2.5",
     ApiKey : "10056859e5ff89339a59bcb8c746f63d"
 }
