@@ -48,7 +48,7 @@ body {
 	-webkit-box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.2);
 	color: #ffffff;
-	height: 60%;
+	height: 75%;
 }
 
 .weather-side {
@@ -56,7 +56,7 @@ body {
 	height: 100%;
 	background: #fff;
 	border-radius: 25px;
-	width: 850px;
+	/* width: 850px; */
 	-webkit-box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2);
 	        box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2);
 	-webkit-transition: -webkit-transform 300ms ease;
@@ -313,6 +313,10 @@ padding: 20px;
 @media only screen and (min-width:280px) and (max-width:319px){
 	/* / smartphones, iPhone, portrait 480x320 phones /  */
 
+	.container{
+		height: calc(100% - 30px);
+	}
+
 }
 
 @media only screen and (min-width:320px) and (max-width:480px){
@@ -421,11 +425,27 @@ padding: 20px;
 
 @media only screen and (min-width:481px) and (max-width:640px){
 /* / portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. /  */
+	.container{
+		height: calc(100% - 30px);
+		width: calc(100% - 30px);
+	}
 
+	.week-list{
+		margin: 10px 15px;
+	}
+}
+
+@media only Screen and (min-width:641px) and (max-width:1280px) {
+	.container{
+		height: calc(100% - 30px);
+		width: 60%;
+	}
 }
 
 @media only screen and (min-width:1281px) and (max-width:1399px){
 /* / DESKTOP VIEW / */
+
+
 }
 
 @media (max-width: 1510px) and (min-width: 1200px){
